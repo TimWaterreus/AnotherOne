@@ -1,0 +1,100 @@
+nav {
+    display:flex;
+}
+
+nav a {
+    color: #B5B5B5;
+    flex-grow: 10;
+    text-align:center;
+    cursor:pointer;
+    transition : all 0.4s ease-out;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+nav div:hover {
+    color:white;
+    border-bottom: 5px solid #e5005b;
+    margin: 0px auto;
+    padding-bottom: 16px;
+    transition: border-color .50s ease-in-out;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: rgb(33, 33, 33);
+    font-family: sans-serif;
+    background-color: white;
+    background-image: url(https://www.concordiadekeizer.nl/app/themes/v1/dist/img/layout/patroon-tegel-RGB-light.png);
+}
+
+header {
+    height:120px;
+    background-color: #4A4A4A;
+    margin: 0 auto;
+    padding: 10px 0;
+
+}
+
+header hr {
+    font-weight: bolder;
+    color: #B5B5B5;
+}
+
+header h1{
+    color: #9FA42D;
+    text-align: center;
+    height: auto;
+}
+
+header nav{
+    color: #B5B5B5;
+    font-weight: bolder;
+
+}
+
+#overzichtSectie {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    position: center;
+}
+
+#bevestigingSectie {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    position: center;
+}
+
+main {
+    max-width: 1000px;
+    margin : 0 auto;
+}
+
+button {
+    padding: 6px;
+    border:none;
+    background-color: #4A4A4A;
+    color: #9FA42D;
+    cursor: pointer;
+}
+
+#vergaderuimte {
+    margin: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+#werkplek {
+    margin: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+#parkeren {
+    margin: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
+}
