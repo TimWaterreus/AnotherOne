@@ -29,7 +29,7 @@
         }
 
         #Reserveringen_Werkplek table {
-            width: 25%;
+            width: 50%;
             margin: 0 auto;
             padding: 20px;
             background-color: whitesmoke;
@@ -41,7 +41,7 @@
         }
 
         #Reserveringen_Parkeerplaats table {
-            width: 25%;
+            width: 50%;
             margin: 0 auto;
             padding: 20px;
             background-color: whitesmoke;
@@ -79,9 +79,9 @@
             echo '<tr><td>ID: ' . $option['id'] . '</td>';
             echo '<td>Vergaderruimte: ' . $option['vergader_ruimte'] . '</td>';
             echo '<td>Datum: ' . $option['vergader_datum'] . '</td>';
-            echo '<td>Tijdslot: ' . $option['vergader_tijdslot'] . '</td></tr>';
+            echo '<td>Tijdslot: ' . $option['vergader_tijdslot'] . '</td>';
+            echo '<td><a href="deleteVGR.php?id=' . $option['id'] . '">Delete</a></td></tr>';
         }
-
         ?>
     </table>
 </section>
@@ -101,9 +101,9 @@
                 foreach ($reserveringen_werkplek as $option) {
                     echo '<tr><td>ID: ' . $option['id'] . '</td>';
                     echo '<td>Datum: ' . $option['werkplek_datum'] . '</td>';
-                    echo '<td>Tijdslot: ' . $option['werkplek_tijdslot'] . '</td></tr>';
+                    echo '<td>Tijdslot: ' . $option['werkplek_tijdslot'] . '</td>';
+                    echo '<td><a href="deleteWPR.php?id=' . $option['id'] . '">Delete</a></td></tr>';
             }
-
             ?>
         </table>
     </section>
@@ -123,7 +123,8 @@
                 foreach ($reserveringen_parkeerplaats as $option) {
                     echo '<tr><td>ID: ' . $option['id'] . '</td>';
                     echo '<td>Datum: ' . $option['parkeer_datum'] . '</td>';
-                    echo '<td>Tijdslot: ' . $option['parkeer_tijdslot'] . '</td></tr>';
+                    echo '<td>Tijdslot: ' . $option['parkeer_tijdslot'] . '</td>';
+                    echo '<td><a href="deletePPR.php?id=' . $option['id'] . '">Delete</a></td></tr>';
                 }
 
                 mysqli_close($db);
