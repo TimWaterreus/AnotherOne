@@ -98,3 +98,74 @@ button {
     padding: 10px;
     background-color: whitesmoke;
 }
+
+#Geplaatste_Reserveringen {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    position: center;
+}
+
+#Reserveringen_Vergaderruimtes h2 {
+    text-align: center;
+}
+
+#Reserveringen_Vergaderruimtes table {
+    width: 75%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    position: center;
+}
+
+#Reserveringen_Werkplek h2 {
+    text-align: center;
+}
+
+#Reserveringen_Werkplek table {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    position: center;
+}
+
+#Reserveringen_Parkeerplaats h2 {
+    text-align: center;
+}
+
+#Reserveringen_Parkeerplaats table {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    position: center;
+}
+
+#loginsectie {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    position: center;
+}
+
+#login {
+    margin: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+@media screen and (max-width: 550px) {
+    nav {
+        display: block;
+    }
+
+    nav div:hover {
+        color:white;
+        padding-bottom: 0px;
+    }
+
+    header {
+        height:180px;
+    }
+}

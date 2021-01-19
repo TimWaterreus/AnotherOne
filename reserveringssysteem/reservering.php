@@ -12,6 +12,7 @@
     <nav>
         <a href="https://www.concordiadekeizer.nl/"><div id="homepagina">Homepagina</div></a>
         <a href="index.php"><div id="overzicht">Overzicht</div></a>
+        <a href="GPL_Reserveringen.php"><div id="reserveringen">Reserveringen</div></a>
     </nav>
 </header>
 <section id="bevestigingSectie">
@@ -25,8 +26,8 @@ if (isset($_POST['vergaderDatum'], $_POST['vergaderRuimte'], $_POST["vergaderTij
     if (in_array($_POST['vergaderRuimte'], $Vergaderruimtes)) {
         if (in_array($_POST['vergaderTijdslot'], $tijdsloten)) {
             $datumTekst = date('d-m-y', strtotime($_POST['vergaderDatum']));
-            $vergaderRuimte = $_POST["vergaderRuimte"];
-            $vergaderTijd = $_POST["vergaderTijdslot"];
+            $vergaderRuimte = mysqli_escape_string($db, $_POST["vergaderRuimte"]);
+            $vergaderTijd = mysqli_escape_string($db, $_POST["vergaderTijdslot"]);
 
             $query = "INSERT INTO vergaderruimte_reserveringen (vergader_ruimte, vergader_datum, vergader_tijdslot)
               VALUES ('$vergaderRuimte', '$datumTekst', '$vergaderTijd')";
@@ -57,7 +58,7 @@ if (isset($_POST['vergaderDatum'], $_POST['vergaderRuimte'], $_POST["vergaderTij
 else if (isset($_POST['werkDatum'], $_POST["werkTijdslot"])) {
     if (in_array($_POST['werkTijdslot'], $tijdsloten)) {
         $datumTekst = date('d-m-y', strtotime($_POST['werkDatum']));
-        $werktijd = $_POST["werkTijdslot"];
+        $werktijd = mysqli_escape_string($db, $_POST["werkTijdslot"]);
 
         $query = "INSERT INTO werkplek_reserveringen (werkplek_datum, werkplek_tijdslot) 
               VALUES ('$datumTekst', '$werktijd')";
@@ -81,7 +82,7 @@ else if (isset($_POST['werkDatum'], $_POST["werkTijdslot"])) {
 else if (isset($_POST['parkeerDatum'], $_POST["parkeerTijdslot"])) {
     if (in_array($_POST['parkeerTijdslot'], $tijdsloten)) {
         $datumTekst = date('d-m-y', strtotime($_POST['parkeerDatum']));
-        $parkeertijd = $_POST["parkeerTijdslot"];
+        $parkeertijd = mysqli_escape_string($db, $_POST["parkeerTijdslot"]);
 
         $query = "INSERT INTO parkeerplaats_reserveringen (parkeer_datum, parkeer_tijdslot)
               VALUES ('$datumTekst', '$parkeertijd')";

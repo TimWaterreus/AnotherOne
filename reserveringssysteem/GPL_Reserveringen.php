@@ -1,53 +1,19 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['loggedInUser'])) {
+    header('Location: login.php');
+    exit;
+}
+
+$loggenInUser = $_SESSION['loggedInUser'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Concordia De Keizer reserveringen</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        #Geplaatste_Reserveringen {
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            position: center;
-        }
-
-        #Reserveringen_Vergaderruimtes h2 {
-            text-align: center;
-        }
-
-        #Reserveringen_Vergaderruimtes table {
-            width: 75%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: whitesmoke;
-            position: center;
-        }
-
-        #Reserveringen_Werkplek h2 {
-            text-align: center;
-        }
-
-        #Reserveringen_Werkplek table {
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: whitesmoke;
-            position: center;
-        }
-
-        #Reserveringen_Parkeerplaats h2 {
-            text-align: center;
-        }
-
-        #Reserveringen_Parkeerplaats table {
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: whitesmoke;
-            position: center;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -56,6 +22,7 @@
     <nav>
         <a href="https://www.concordiadekeizer.nl/"><div id="homepagina">Homepagina</div></a>
         <a href="index.php"><div id="overzicht">Overzicht</div></a>
+        <a href="GPL_Reserveringen.php"><div id="reserveringen">Reserveringen</div></a>
     </nav>
 </header>
 <main>
