@@ -9,8 +9,8 @@ if (isset($_SESSION['loggedInUser'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $gebruiker = mysqli_escape_string($db, $_POST['gebruiker']);
-    $wachtwoord = $_POST['wachtwoord'];
+    $gebruiker = mysqli_escape_string($db, htmlspecialchars($_POST['gebruiker'], ENT_QUOTES));
+    $wachtwoord = htmlspecialchars($_POST['wachtwoord'], ENT_QUOTES);
 
     $query = "SELECT * FROM gebruikers WHERE gebruikersnaam = '$gebruiker'";
     $result = mysqli_query($db, $query) or die ('Error: ' . $query);

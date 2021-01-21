@@ -26,8 +26,8 @@ if (isset($_POST['vergaderDatum'], $_POST['vergaderRuimte'], $_POST["vergaderTij
     if (in_array($_POST['vergaderRuimte'], $Vergaderruimtes)) {
         if (in_array($_POST['vergaderTijdslot'], $tijdsloten)) {
             $datumTekst = date('d-m-y', strtotime($_POST['vergaderDatum']));
-            $vergaderRuimte = mysqli_escape_string($db, $_POST["vergaderRuimte"]);
-            $vergaderTijd = mysqli_escape_string($db, $_POST["vergaderTijdslot"]);
+            $vergaderRuimte = mysqli_escape_string($db, htmlspecialchars($_POST["vergaderRuimte"], ENT_QUOTES));
+            $vergaderTijd = mysqli_escape_string($db, htmlspecialchars($_POST["vergaderTijdslot"], ENT_QUOTES));
 
             $query = "INSERT INTO vergaderruimte_reserveringen (vergader_ruimte, vergader_datum, vergader_tijdslot)
               VALUES ('$vergaderRuimte', '$datumTekst', '$vergaderTijd')";
@@ -38,9 +38,9 @@ if (isset($_POST['vergaderDatum'], $_POST['vergaderRuimte'], $_POST["vergaderTij
 
             echo '<h2>Reservering geplaatst</h2>';
             echo 'Soort reservering: <strong>vergaderruimte</strong> <br>';
-            echo 'Gekozen vergaderruimte: ' . $_POST['vergaderRuimte'] . '<br>';
-            echo 'Datum: ' . $datumTekst . '<br>';
-            echo 'Tijdslot: ' . $vergaderTijd . '<br>';
+            echo 'Gekozen vergaderruimte: ' . htmlspecialchars($_POST['vergaderRuimte'], ENT_QUOTES) . '<br>';
+            echo 'Datum: ' . htmlspecialchars($datumTekst, ENT_QUOTES) . '<br>';
+            echo 'Tijdslot: ' . htmlspecialchars($vergaderTijd, ENT_QUOTES) . '<br>';
         }
         else {
             echo '<h2>Reservering niet geplaatst</h2>';
@@ -58,7 +58,7 @@ if (isset($_POST['vergaderDatum'], $_POST['vergaderRuimte'], $_POST["vergaderTij
 else if (isset($_POST['werkDatum'], $_POST["werkTijdslot"])) {
     if (in_array($_POST['werkTijdslot'], $tijdsloten)) {
         $datumTekst = date('d-m-y', strtotime($_POST['werkDatum']));
-        $werktijd = mysqli_escape_string($db, $_POST["werkTijdslot"]);
+        $werktijd = mysqli_escape_string($db, htmlspecialchars($_POST["werkTijdslot"], ENT_QUOTES));
 
         $query = "INSERT INTO werkplek_reserveringen (werkplek_datum, werkplek_tijdslot) 
               VALUES ('$datumTekst', '$werktijd')";
@@ -69,8 +69,8 @@ else if (isset($_POST['werkDatum'], $_POST["werkTijdslot"])) {
 
         echo '<h2>Reservering geplaatst</h2>';
         echo 'Soort reservering: <strong>Werkplek</strong> <br>';
-        echo 'Datum: ' . $datumTekst . '<br>';
-        echo 'Tijdslot: ' . $werktijd . '<br>';
+        echo 'Datum: ' . htmlspecialchars($datumTekst, ENT_QUOTES) . '<br>';
+        echo 'Tijdslot: ' . htmlspecialchars($werktijd, ENT_QUOTES) . '<br>';
     }
     else {
         echo '<h2>Reservering niet geplaatst</h2>';
@@ -82,7 +82,7 @@ else if (isset($_POST['werkDatum'], $_POST["werkTijdslot"])) {
 else if (isset($_POST['parkeerDatum'], $_POST["parkeerTijdslot"])) {
     if (in_array($_POST['parkeerTijdslot'], $tijdsloten)) {
         $datumTekst = date('d-m-y', strtotime($_POST['parkeerDatum']));
-        $parkeertijd = mysqli_escape_string($db, $_POST["parkeerTijdslot"]);
+        $parkeertijd = mysqli_escape_string($db, htmlspecialchars($_POST["parkeerTijdslot"], ENT_QUOTES));
 
         $query = "INSERT INTO parkeerplaats_reserveringen (parkeer_datum, parkeer_tijdslot)
               VALUES ('$datumTekst', '$parkeertijd')";
@@ -93,8 +93,8 @@ else if (isset($_POST['parkeerDatum'], $_POST["parkeerTijdslot"])) {
 
         echo '<h2>Reservering geplaatst</h2>';
         echo 'Soort reservering: <strong>Parkeerplaats</strong> <br>';
-        echo 'Datum: ' . $datumTekst . '<br>';
-        echo 'Tijdslot: ' . $parkeertijd . '<br>';
+        echo 'Datum: ' . htmlspecialchars($datumTekst, ENT_QUOTES) . '<br>';
+        echo 'Tijdslot: ' . htmlspecialchars($parkeertijd, ENT_QUOTES) . '<br>';
     }
     else {
         echo '<h2>Reservering niet geplaatst</h2>';

@@ -12,8 +12,8 @@ if (isset($_SESSION['loggedInUser'])) {
 if (isset($_POST['submit'])) {
 
     require_once "database.php";
-    $gebruiker = mysqli_escape_string($db, $_POST['gebruiker']);
-    $wachtwoord = $_POST['wachtwoord'];
+    $gebruiker = mysqli_escape_string($db, htmlspecialchars($_POST['gebruiker'], ENT_QUOTES));
+    $wachtwoord = htmlspecialchars($_POST['wachtwoord'], ENT_QUOTES);
 
     $errors = [];
 
