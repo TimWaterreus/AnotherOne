@@ -26,7 +26,6 @@ $loggenInUser = $_SESSION['loggedInUser'];
     </nav>
 </header>
 <main>
-    <section id="Geplaatste_Reserveringen">
     <section id="Reserveringen_Vergaderruimtes">
         <h2>Reserveringen vergaderruimtes</h2>
     <table>
@@ -47,7 +46,8 @@ $loggenInUser = $_SESSION['loggedInUser'];
             echo '<td>Vergaderruimte: ' . $option['vergader_ruimte'] . '</td>';
             echo '<td>Datum: ' . $option['vergader_datum'] . '</td>';
             echo '<td>Tijdslot: ' . $option['vergader_tijdslot'] . '</td>';
-            echo '<td><a href="deleteVGR.php?id=' . $option['id'] . '">Delete</a></td></tr>';
+            echo '<td><a href="deleteVGR.php?id=' . $option['id'] . '">Delete</a></td>';
+            echo '<td><a href="editVGR.php?id=' . $option['id'] . '">Edit</a></td></tr>';
         }
         ?>
     </table>
@@ -69,7 +69,8 @@ $loggenInUser = $_SESSION['loggedInUser'];
                     echo '<tr><td>ID: ' . $option['id'] . '</td>';
                     echo '<td>Datum: ' . $option['werkplek_datum'] . '</td>';
                     echo '<td>Tijdslot: ' . $option['werkplek_tijdslot'] . '</td>';
-                    echo '<td><a href="deleteWPR.php?id=' . $option['id'] . '">Delete</a></td></tr>';
+                    echo '<td><a href="deleteWPR.php?id=' . $option['id'] . '">Delete</a></td>';
+                    echo '<td><a href="editWPR.php?id=' . $option['id'] . '">Edit</a></td></tr>';
             }
             ?>
         </table>
@@ -91,13 +92,13 @@ $loggenInUser = $_SESSION['loggedInUser'];
                     echo '<tr><td>ID: ' . $option['id'] . '</td>';
                     echo '<td>Datum: ' . $option['parkeer_datum'] . '</td>';
                     echo '<td>Tijdslot: ' . $option['parkeer_tijdslot'] . '</td>';
-                    echo '<td><a href="deletePPR.php?id=' . $option['id'] . '">Delete</a></td></tr>';
+                    echo '<td><a href="deletePPR.php?id=' . $option['id'] . '">Delete</a></td>';
+                    echo '<td><a href="editPPR.php?id=' . $option['id'] . '">Edit</a></td></tr>';
                 }
 
                 mysqli_close($db);
             ?>
         </table>
-    </section>
     </section>
 </main>
 </body>
